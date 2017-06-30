@@ -37,7 +37,8 @@ var clyde = {
 };
 
 // replace this comment with your four ghosts setup as objects
-
+var ghosts = [];
+ghosts.push(inky, blinky, pinky, clyde);
 
 // Draw the screen functionality
 function drawScreen() {
