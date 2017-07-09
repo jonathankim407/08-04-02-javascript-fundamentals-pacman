@@ -64,10 +64,10 @@ function displayMenu() {
   if (powerPellets >= 1) {
     console.log('(p) Eat Power-Pellet');
   }
-  console.log('(1) Eat ' + ghosts[0].name);
-  console.log('(2) Eat ' + ghosts[1].name);
-  console.log('(3) Eat ' + ghosts[2].name);
-  console.log('(4) Eat ' + ghosts[3].name);
+  console.log('(1) Eat ' + ghosts[0].name + ' ' + displayEdible(ghosts[0]));
+  console.log('(2) Eat ' + ghosts[1].name + ' ' + displayEdible(ghosts[1]));
+  console.log('(3) Eat ' + ghosts[2].name + ' ' + displayEdible(ghosts[2]));
+  console.log('(4) Eat ' + ghosts[3].name + ' ' + displayEdible(ghosts[3]));
   console.log('(q) Quit');
 }
 
@@ -110,6 +110,14 @@ function eatPowerPellet() {
 function ghostsEdible() {
   for (var i = 0; i < 4; i ++) {
   ghosts[i].edible = true; }
+}
+
+function displayEdible(ghost) {
+  if (ghost.edible === false) {
+    return '(inedible)';
+  } else {
+    return '(edible)';
+  }
 }
 
 // Process Player's Input
