@@ -90,6 +90,10 @@ function eatGhost(ghost) {
   if (ghost.edible === false) {
     console.log('\nChomp! You ate the ' + ghost.colour + ' ghost '+ ghost.name + '! You lose a life!');
     lives -= 1;
+  } else {
+    console.log('\nChomp! You ate the ' + ghost.character + ' ghost '+ ghost.name + '!');
+    score += 200;
+    ghost.edible = false;
   }
 }
 
