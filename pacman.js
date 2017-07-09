@@ -2,7 +2,6 @@
 var score = 0;
 var lives = 2;
 
-
 // Define your ghosts here
 var inky = {
   menu_option: '1',
@@ -73,13 +72,18 @@ function displayPrompt() {
   process.stdout.write('\nWaka Waka :v '); // :v is the Pac-Man emoji.
 }
 
-
 // Menu Options
 function eatDot() {
   console.log('\nChomp!');
   score += 10;
 }
 
+function eatGhost(ghost) {
+  if (ghost.edible === false) {
+    console.log('\nChomp! You ate the ' + ghost.colour + ' ghost '+ ghost.name + '! You lose a life!');
+    lives -= 1;
+  }
+}
 
 // Process Player's Input
 function processInput(key) {
@@ -91,11 +95,22 @@ function processInput(key) {
     case 'd':
       eatDot();
       break;
+    case '1':
+      eatGhost(ghosts[0]);
+      break;
+    case '2':
+      eatGhost(ghosts[1]);
+      break;
+    case '3':
+      eatGhost(ghosts[2]);
+      break;
+    case '4':
+      eatGhost(ghosts[3]);
+      break;
     default:
       console.log('\nInvalid Command!');
   }
 }
-
 
 //
 // YOU PROBABLY DON'T WANT TO CHANGE CODE BELOW THIS LINE
