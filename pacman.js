@@ -91,6 +91,17 @@ function eatGhost(ghost) {
   }
 }
 
+function eatPowerPellet() {
+    score += 50;
+    ghostsEdible();
+    powerPellets -= 1;
+}
+
+function ghostsEdible() {
+  for (var i = 0; i < 4; i ++) {
+  ghosts[i].edible = true; }
+}
+
 // Process Player's Input
 function processInput(key) {
   switch(key) {
@@ -100,6 +111,9 @@ function processInput(key) {
       break;
     case 'd':
       eatDot();
+      break;
+    case 'p':
+      eatPowerPellet();
       break;
     case '1':
       eatGhost(ghosts[0]);
